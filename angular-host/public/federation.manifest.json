@@ -1,0 +1,4 @@
+{
+  "remoteAngular": "http://localhost:5100/remoteEntry.json",
+  "remoteReact": "http://localhost:3001/remoteEntry.js"
+}
