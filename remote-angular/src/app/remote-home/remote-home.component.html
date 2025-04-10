@@ -1,3 +1,9 @@
 <h1>Remote Counter: {{ count$ | async }}</h1>
 <button (click)="onIncrement()">+</button>
 <button (click)="onDecrement()">-</button>
+<br>
+<div *ngIf="loading$ | async">Loading...</div>
+<ul>
+    <li *ngFor="let product of products$ | async">{{ product.name }}</li>
+</ul>
+<button (click)="loadProducts()">Load Products</button>
