@@ -5,7 +5,8 @@ module.exports = withNativeFederation({
   name: 'remoteAngular',
 
   exposes: {
-    './Routes':  './src/app/app.routes.ts'
+    './Routes': './src/app/app.routes.ts',
+    './Store':  './src/app/remote-store.export.ts'  // <-- New entry for the store export
   },
 
   shared: {

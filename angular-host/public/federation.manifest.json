@@ -1,4 +1,7 @@
 {
   "remoteAngular": "http://localhost:5100/remoteEntry.json",
-  "remoteReact": "http://localhost:3001/remoteEntry.js"
+  "remoteReact": {
+    "type": "module",
+    "entry": "http://localhost:3001/remoteEntry.js"
+  }
 }
