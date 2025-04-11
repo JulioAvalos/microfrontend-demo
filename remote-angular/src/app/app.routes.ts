@@ -1,6 +1,15 @@
 import { Routes } from '@angular/router';
-import { RemoteHomeComponent } from './remote-home/remote-home.component';
+import {BodyComponent} from "./layout/body/body.component";
 
 export const routes: Routes = [
-  { path: '', component: RemoteHomeComponent }
+  {
+    path: '',
+    component: BodyComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./modules/modules.routes').then(m => m.modulesRoutes),
+      }
+    ]
+  }
 ];
