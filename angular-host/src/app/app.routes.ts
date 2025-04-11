@@ -7,8 +7,7 @@ export const HOST_ROUTES: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'remote-angular',
-    loadChildren: () =>
-      loadRemoteModule('remoteAngular', './Routes').then(m => m.routes)
+    loadChildren: () => loadRemoteModule('remoteAngular', './Routes').then(m => m.routes)
   },
   { path: '**', redirectTo: '' }
 ];

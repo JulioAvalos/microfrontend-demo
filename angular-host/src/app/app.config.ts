@@ -55,7 +55,8 @@ export async function loadCombinedStoreConfig(): Promise<{
     };
 
     // Extract remote effects from the loaded module; use fallback if unavailable.
-    const combinedEffects = remoteModule.RemoteEffect || [];
+    const combinedEffects = remoteModule.remoteEffects || [];
+    console.log('combinedEffects:', combinedEffects);
     return {
       reducers: combinedReducers,
       effects: combinedEffects,
