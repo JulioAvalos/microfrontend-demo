@@ -5,13 +5,15 @@ import {Observable} from "rxjs";
 import {RemoteAction} from "../../store/remote.actions";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {Product} from "../../model/product.model";
+import {NgxExtendedPdfViewerModule} from "ngx-extended-pdf-viewer";
 
 @Component({
     selector: 'app-remote-home',
     imports: [
         AsyncPipe,
         NgIf,
-        NgForOf
+        NgForOf,
+        NgxExtendedPdfViewerModule
     ],
     templateUrl: './remote-home.component.html',
     styleUrl: './remote-home.component.css'
@@ -21,6 +23,7 @@ export class RemoteHomeComponent {
     count$: Observable<number>;
     products$: Observable<Product[]>;
     loading$: Observable<boolean>;
+    showModal = false;
 
     constructor(private store: Store<{ remote: RemoteState }>) {
         this.count$ = this.store.select(state => state.remote.count);
@@ -38,5 +41,13 @@ export class RemoteHomeComponent {
 
     loadProducts() {
         this.store.dispatch(RemoteAction.loadProducts());
+    }
+
+    openModal() {
+        this.showModal = true;
+    }
+
+    closeModal() {
+        this.showModal = false;
     }
 }

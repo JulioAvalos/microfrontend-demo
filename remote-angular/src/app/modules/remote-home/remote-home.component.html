@@ -7,3 +7,23 @@
     <li *ngFor="let product of products$ | async">{{ product.name }}</li>
 </ul>
 <button (click)="loadProducts()">Load Products</button>
+
+<button (click)="openModal()">Open PDF</button>
+
+<div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-button" (click)="closeModal()" aria-label="Close modal">
+                <span class="close-icon">&times;</span>
+            </button>
+        </div>
+        <div class="pdf-container">
+            <ngx-extended-pdf-viewer
+                [src]="'assets/dummy.pdf'"
+                [textLayer]="true"
+                [showHandToolButton]="true"
+                [showPresentationModeButton]="true">
+            </ngx-extended-pdf-viewer>
+        </div>
+    </div>
+</div>
